@@ -16,7 +16,8 @@ var CacheMiddleware = require('koa-cache-router');
 router.use('/home', CacheMiddleware({
     expire:5*60*1000
 }));
-router.use('/home', function*(){
+
+router.get('/home', function*(){
     this.body = render('home');
 });
 ```
