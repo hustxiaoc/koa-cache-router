@@ -8,14 +8,13 @@ function CacheMiddleware(options) {
             this.body = content;
         }else{
             yield next;
-            if (typeof this.body === 'string' || Buffer.isBuffer(this.body)) {
+            if (this.method === 'GET' && (typeof this.body === 'string' || Buffer.isBuffer(this.body)) ) {
                 content = this.body;
                 setTimeout(function() {
                     content = null;
                 }, expire);
             }
         }
-
     }
 }
 
