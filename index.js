@@ -6,14 +6,16 @@ function CacheMiddleware(options) {
     return function*(next) {
         if (content) {
             this.body = content;
+        }else{
+            yield next;
+            if (typeof this.body === 'string' || Buffer.isBuffer(this.body)) {
+                content = this.body;
+                setTimeout(function() {
+                    content = null;
+                }, expire);
+            }
         }
-        yield next;
-        if (typeof this.body === 'string' || Buffer.isBuffer(this.body)) {
-            content = this.body;
-            setTimeout(function() {
-                content = null;
-            }, expire);
-        }
+
     }
 }
 

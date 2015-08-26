@@ -1,6 +1,6 @@
 {
   "name": "koa-cache-router",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "koa cache page middleware",
   "main": "index.js",
   "scripts": {
