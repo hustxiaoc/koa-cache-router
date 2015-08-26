@@ -24,7 +24,7 @@ router.get('/home', function*(){
 
 Options :
 
-- expire: expire time, use `ms`. (Required)
+- expire: expire time, use `ms`. (optional) default is 5 * 60 * 1000
 
 ### License
 
